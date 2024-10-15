@@ -1,0 +1,28 @@
+.nav-link.box {
+  
+    padding: 15px 20px;
+    margin: 5px;
+ 
+    border-radius: 5px;
+    text-align: center;
+    background-color: #f8f9fa; 
+    transition: background-color 0.3s;
+  }
+  
+  .nav-link.box:hover {
+    background-color: #e2e6ea;
+  }
+  
+  .navbar-nav {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .nav-item {
+    margin-right: 15px; /* Adjust spacing between items */
+  }
+  
+  .box {
+    padding: 10px; /* Adjust padding for better appearance */
+  }
+  
