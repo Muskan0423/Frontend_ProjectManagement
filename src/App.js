@@ -4,6 +4,7 @@ import Todo from './To-Do/Todo';
 import Home from './Home/Home'
 import LoginSignup from './LoginSignUp/LoginSignup'; 
 import Profile from './Home/Profile';
+import Header from './Home/Header';
 
 
 function App() {

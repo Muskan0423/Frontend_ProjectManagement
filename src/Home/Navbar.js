@@ -1,67 +1,42 @@
-// import React from 'react';
-// import './Navbar.css'
-
-// const Navbar = () => {
-//   return (
-//     <nav className="navbar navbar-expand-lg navbar-light bg-light flex-row">
-//       <div className="collapse navbar-collapse">
-//         <ul className="navbar-nav d-flex flex-row">
-//           <li className="nav-item">
-//             <a className="nav-link box" href="#">
-//               Home
-//             </a>
-//           </li>
-//           <li className="nav-item">
-//             <a className="nav-link box" href="#">
-//               Instructions
-//             </a>
-//           </li>
-//           <li className="nav-item">
-//             <a className="nav-link box" href="#">
-//               Tasks
-//             </a>
-//           </li>
-//         </ul>
-//       </div>
-//     </nav>
-//   );
-// };
-
-// export default Navbar;
-
-
 import React from 'react';
 import './Navbar.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { MdLogout } from 'react-icons/md'; 
 
 const Navbar = () => {
+  const navigate = useNavigate();
+  
+  const handleLogout = () => {
+    localStorage.clear();
+    navigate("/");
+    window.location.reload();
+  };
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="collapse navbar-collapse">
         <ul className="navbar-nav d-flex flex-row">
           <li className="nav-item">
-            <a className="nav-link box" href="/">
+            <Link className="nav-div box" to="/">
               Home
-            </a>
+            </Link>
           </li>
-          <Link to='/profile'>
           <li className="nav-item">
-            <a className="nav-link box" href="#">
+            <Link className="nav-div box" to="/profile">
               Profile
-            </a>
+            </Link>
           </li>
-          </Link>
-          <Link to='/todo'>
           <li className="nav-item">
-          
-            <a className="nav-link box" href="#">
-            Tasks
-            </a>
-         
+            <Link className="nav-div box" to="/todo">
+              Tasks
+            </Link>
           </li>
-          </Link>
-         
         </ul>
+      </div>
+      <div className="logout-icon">
+        <Link onClick={handleLogout} className="nav-div">
+          <MdLogout size={29}/>
+        </Link>
       </div>
     </nav>
   );

@@ -1,0 +1,16 @@
+
+.header {
+    text-align:start; 
+    /* margin-top: 20px;  */
+    /* margin-bottom: 300px;  */
+    position: absolute;
+    top:10px
+  }
+  
+  .header-title {
+    font-size: 2rem; 
+    font-weight: bold; 
+    font-family: 'Serif';
+    color:antiquewhite
+  }
+  

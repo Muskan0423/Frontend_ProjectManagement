@@ -1,43 +1,83 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom"; 
 import "./Profile.css";
-import image from '../Assests/Image1.jpeg'
-// import bgPatternCard from "../assets/bg-pattern-card.svg";
-// import imageVictor from "../assets/image-victor.jpg";
 
 const Profile = () => {
-	return (
-		<div className="card-container">
-			<main className="card">
-			
-				<div className="user-image">
-					<img src={image} alt="Profile" className="image-victor-class" />
-				</div>
-				<div className="user-content">
-					<div className="user-details">
-						<h1 className="user-name-age">
-							Victor Crest <span className="user-age">26</span>
-						</h1>
-						<div className="user-location">London</div>
-					</div>
-					<hr />
-					<div className="user-stats">
-						<div className="followers">
-							<h1 className="stats">80K</h1>
-							<div className="title">Followers</div>
-						</div>
-						<div className="likes">
-							<h1 className="stats">803K</h1>
-							<div className="title">Likes</div>
-						</div>
-						<div className="photos">
-							<h1 className="stats">1.4K</h1>
-							<div className="title">Photos</div>
-						</div>
-					</div>
-				</div>
-			</main>
-		</div>
-	);
+    const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const navigate = useNavigate(); 
+
+    useEffect(() => {
+        const fetchUserData = async () => {
+            const token = localStorage.getItem('token'); 
+            if (!token) {
+                console.error('No token found');
+                setLoading(false);
+                return;
+            }
+
+            const response = await fetch('http://localhost:5001/api/users/users/me', {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+
+            const text = await response.text(); 
+            console.log('Response:', text); 
+
+            if (response.ok) {
+                try {
+                    const data = JSON.parse(text); 
+                    setUser(data);
+                    console.log(data);
+                } catch (parseError) {
+                    console.error('Error parsing JSON:', parseError);
+                }
+            } else {
+                console.error('Failed to fetch user data:', text);
+            }
+            setLoading(false);
+        };
+
+        fetchUserData();
+    }, []);
+
+    if (loading) return <div>Loading...</div>;
+    if (!user) return <div>User not found</div>;
+const handleback=()=>{
+navigate("/")
+}
+    const totalTasks = user.tasks.length;
+    const pendingTasks = user.tasks.filter(task => task.status === 'pending').length;
+
+    return (
+        <div className="card-container">
+            <main className="card">
+                <button onClick={() => handleback()} className="back-button">
+                    Back
+                </button>
+                <div className="user-content">
+                    <div className="user-details">
+                        <h1 className="user-name-age">
+                            {user.username} 
+                        </h1>
+                        <div className="user-location">{user.email}</div>
+                    </div>
+                    <hr />
+                    <div className="user-stats">
+                        <div className="tasks">
+                            <h1 className="stats">{totalTasks}</h1>
+                            <div className="title">Total Tasks</div>
+                        </div>
+                        <div className="pending-tasks">
+                            <h1 className="stats">{pendingTasks}</h1>
+                            <div className="title">Pending Tasks</div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    );
 };
 
 export default Profile;
