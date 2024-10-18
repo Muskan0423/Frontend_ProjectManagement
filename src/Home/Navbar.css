@@ -25,7 +25,17 @@
   .box {
     padding: 10px;
   }
-
+  .support-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+    background: #007bff;
+    border-radius: 50%;
+    padding: 10px;
+    color: white;
+  }
+  
 .navbar-heading {
   margin-right: auto; 
   padding: 1rem; 

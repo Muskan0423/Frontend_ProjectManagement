@@ -12,6 +12,25 @@
     height: 100;
     font-family: 'Kumbh Sans', sans-serif;
   }
+ 
+
+.back-button {
+    position: absolute; /* Position it relative to the container */
+    top: 20px; /* Adjust the distance from the top */
+    left: 20px; /* Adjust the distance from the left */
+    padding: 10px 20px; /* Button padding */
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Font size */
+    color:#6c68a8
+}
+
+.back-button:hover {
+    background-color: rgba(255, 255, 255, 1); /* Full white on hover */
+}
+
   
   .card-container::after{
     content: "";
@@ -22,19 +41,7 @@
     height: 100%;
     width: 100%;
   }
-  .back-button {
-    background-color: #007bff; /* Bootstrap primary color */
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-bottom: 20px; /* Spacing from the content */
-}
 
-.back-button:hover {
-    background-color: #0056b3; /* Darker shade on hover */
-}
 
   
   .card-container::before{

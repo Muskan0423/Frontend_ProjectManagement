@@ -16,7 +16,7 @@ const Profile = () => {
                 return;
             }
 
-            const response = await fetch('http://localhost:5001/api/users/users/me', {
+            const response = await fetch('http://localhost:5000/api/users/users/me', {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
@@ -52,15 +52,13 @@ navigate("/")
 
     return (
         <div className="card-container">
+            <button onClick={handleback} className="back-button">
+                Back
+            </button>
             <main className="card">
-                <button onClick={() => handleback()} className="back-button">
-                    Back
-                </button>
                 <div className="user-content">
                     <div className="user-details">
-                        <h1 className="user-name-age">
-                            {user.username} 
-                        </h1>
+                        <h1 className="user-name-age">{user.username}</h1>
                         <div className="user-location">{user.email}</div>
                     </div>
                     <hr />
@@ -78,6 +76,6 @@ navigate("/")
             </main>
         </div>
     );
-};
+}    
 
 export default Profile;

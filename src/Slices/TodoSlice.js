@@ -1,14 +1,14 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const apiUrl = 'http://localhost:5001/api/users';
+const apiUrl = 'http://localhost:5000/api/users';
 
 export const loadTasks = createAsyncThunk('todos/loadTasks', async (token) => {
     const response = await axios.get(`${apiUrl}/tasks`, {
         headers: { Authorization: `Bearer ${token}` }
     });
     
-    localStorage.setItem('tasks', JSON.stringify(response.data.tasks)); // Store tasks in local storage
+    localStorage.setItem('tasks', JSON.stringify(response.data.tasks)); 
     return response.data.tasks;
 });
 

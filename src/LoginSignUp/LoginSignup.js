@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate
+import { Link, useNavigate } from 'react-router-dom'; 
 import './LoginSignup.css';
 
-const apiUrl = 'http://localhost:5001/api';
+const apiUrl = 'http://localhost:5000/api';
 
 const LoginSignup = () => {
   const [isLogin, setIsLogin] = useState(true);
