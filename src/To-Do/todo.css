@@ -19,20 +19,20 @@ body {
 
 
   .back-button {
-    position: absolute; /* Position it relative to the container */
-    top: 20px; /* Adjust the distance from the top */
-    left: 20px; /* Adjust the distance from the left */
-    padding: 10px 20px; /* Button padding */
-    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
-    border: none; /* No border */
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
-    font-size: 16px; /* Font size */
+    position: absolute; 
+    top: 20px;
+    left: 20px; 
+    padding: 10px 20px; 
+    background-color: rgba(255, 255, 255, 0.8); 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-size: 16px;
     color:#6c68a8
 }
 
 .back-button:hover {
-    background-color: rgba(255, 255, 255, 1); /* Full white on hover */
+    background-color: rgba(255, 255, 255, 1); 
 }
 
   
@@ -48,7 +48,6 @@ body {
   #CheckCompleted{
     background-color:rgb(102, 206, 183);
     border-color: black;
-    /* position: relative; */
     border: black;
     width: 4%;
   }
@@ -89,7 +88,6 @@ body {
     background-color: #dc3545;
     border: none;
     color: white;
-/* position: relative; */
     padding: 5px 8px;
     border-radius: 4px;
     cursor: pointer;

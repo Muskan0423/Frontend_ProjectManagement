@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Navbar.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { MdLogout, MdSupport } from 'react-icons/md'; 
-import SupportModal from './SupportModal'; // Import the modal component
+import SupportModal from './SupportModal'; 
 
 const Navbar = () => {
   const navigate = useNavigate();
