@@ -7,7 +7,7 @@ describe('LoginSignup Component', () => {
   beforeAll(async () => {
     browser = await puppeteer.launch();
     page = await browser.newPage();
-    await page.goto('http://localhost:3000'); // Adjust the URL to your frontend
+    await page.goto('http://localhost:3000'); 
   });
 
   afterAll(async () => {
@@ -15,8 +15,8 @@ describe('LoginSignup Component', () => {
   });
 
   test('should successfully log in', async () => {
-    await page.type('input[name="email"]', 'test@example.com'); // Change to a valid email
-    await page.type('input[name="password"]', 'password123'); // Change to a valid password
+    await page.type('input[name="email"]', 'test@example.com'); 
+    await page.type('input[name="password"]', 'password123');
     await page.click('button[type="submit"]');
 
     await page.waitForNavigation();
@@ -33,9 +33,8 @@ describe('LoginSignup Component', () => {
     await page.type('input[name="password"]', 'password123'); 
     await page.click('button[type="submit"]');
 
-    await page.waitForTimeout(9000); // Wait for alert to appear (adjust time as necessary)
+    await page.waitForTimeout(9000); 
     
-    // Assert for successful signup alert (if using window.alert)
     const alertText = await page.evaluate(() => {
       return new Promise((resolve) => {
         window.alert = (msg) => resolve(msg);
@@ -46,11 +45,9 @@ describe('LoginSignup Component', () => {
   });
 
   test('should switch between Login and Signup forms', async () => {
-    // Initially, it should be in Login mode
     const initialHeading = await page.$eval('h2', el => el.innerText);
     expect(initialHeading).toBe('Login');
 
-    // Switch to Signup
     await page.click('.switch-link');
     
     const afterSwitchHeading = await page.$eval('h2', el => el.innerText);

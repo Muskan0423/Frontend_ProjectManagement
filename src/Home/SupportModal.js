@@ -17,7 +17,7 @@ const SupportModal = ({ onClose }) => {
             return;
         }
 
-        const response = await fetch('http://localhost:5000/api/users/tickets/user/me', {
+        const response = await fetch('https://backend-projectmanagement-qm5e.onrender.com/api/users/tickets/user/me', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -42,7 +42,7 @@ const SupportModal = ({ onClose }) => {
             return;
         }
 
-        const response = await fetch('http://localhost:5000/api/users/tickets', {
+        const response = await fetch('https://backend-projectmanagement-qm5e.onrender.com/api/users/tickets', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

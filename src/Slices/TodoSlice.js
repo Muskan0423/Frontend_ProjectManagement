@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const apiUrl = 'http://localhost:5000/api/users';
+const apiUrl = 'https://backend-projectmanagement-qm5e.onrender.com/api/users';
 
 export const loadTasks = createAsyncThunk('todos/loadTasks', async (token) => {
     const response = await axios.get(`${apiUrl}/tasks`, {

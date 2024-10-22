@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom'; 
 import './LoginSignup.css';
 
-const apiUrl = 'http://localhost:5000/api';
+const apiUrl = 'https://backend-projectmanagement-qm5e.onrender.com/api';
 
 const LoginSignup = () => {
   const [isLogin, setIsLogin] = useState(true);
